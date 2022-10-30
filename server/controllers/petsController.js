@@ -47,13 +47,6 @@ export async function deletePet(req, res) {
 
           const { favorites } = await usersServices.oneUserById(req.userId, false);
           const dataIndex = favorites.findIndex(favorite => favorite._id === req.params.id);
-          console.log(dataIndex)
-          // console.log(favorites)
-          // user.addToFavorites(req.params.id);
-          // console.log(req.userId)
-          // console.log(user)
-          // user.removeFromFavorites(req.params.id);
-
 
           return req.flash('success', `Pet Deleted!`), res.redirect('/pets');
 
@@ -67,9 +60,9 @@ export async function createPet(req, res) {
      if (!req.body) return next(new AppError('Bad Request!', 400));
      if (req.body.isVegetarian !== 'true') req.body.isVegetarian = false;
 
-     // Convert the value from text to Boolean
+     // Convert the value from String to Boolean
      req.body.isVegetarian = !!req.body.isVegetarian
-     // Convert the value from text to Number
+     // Convert the value from String to Number
      req.body.age = +req.body.age
 
      if (!req.body.owner) req.body.owner = undefined;
@@ -88,6 +81,7 @@ export async function getEditPage(req, res) {
      const users = await usersServices.allUsers();
      res.render('./pages/pets/editPet', { pet, users });
 }
+
 export async function editPet(req, res, next) {
      if (!req.params.id || !req.body) return next(new AppError("Bad Request", 400))
 

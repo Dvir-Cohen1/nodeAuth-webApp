@@ -5,6 +5,7 @@ import fs from 'fs'
 
 import AppError from "../utils/AppError.js";
 
+// All users 
 export async function index(req, res, next) {
      const users = await usersServices.allUsers()
      const flash = req.flash();
@@ -12,6 +13,7 @@ export async function index(req, res, next) {
      res.render('./pages/users/users', { users, flash });
 }
 
+// Edit page
 export async function getUserEditPage(req, res, next) {
      const user = await usersServices.oneUser(next, req.params.name);
      const flash = req.flash();
@@ -68,7 +70,6 @@ export async function getLoggedInUser(req, res, next) {
 
      } catch (error) {
           return next(new AppError('Please Login!', 401));
-          // return req.flash('error', `Please Login!`), res.redirect('/');
      }
 }
 
@@ -82,9 +83,11 @@ export async function uploadProfileImage(req, res, next) {
      const fileType = file.name.split(".")[1];
 
 
+     // Creates uploads folder if not exist
      const uploadsFolder = `../client/uploads`
      if (!fs.existsSync(uploadsFolder)) fs.mkdirSync(uploadsFolder);
 
+     // Create folder based on user id to store profile image
      const userDir = `../client/uploads/${req.userId}`
      const uploadPath = `${userDir}/avatar.${fileType}`;
 
@@ -120,7 +123,6 @@ export async function sendEmail(req, res, next) {
      }
      const { email, subject, content } = req.body;
      const data = await mailer.sendEmail(email, subject, content);
-     console.log(data)
+
      res.json(data).end();
-     // res.json(data);
 }
