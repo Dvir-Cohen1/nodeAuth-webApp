@@ -5,9 +5,10 @@ In the project directory, first run:
 
 ```
 npm install
+> require nodemon installed
 ```
- 
  then you can run:
+ 
 ```
  nodemon
 ```
