@@ -1,0 +1,36 @@
+<% if(Object.keys(flash).length !== 0) {%>
+<%
+     let className;
+     let message;
+     let icon;
+
+     if(flash.info) {
+          className = 'alert-primary';
+          message = flash.info;
+          icon = 'fa-info-circle';
+     }
+     if(flash.error) {
+          className = 'alert-danger';
+          message = flash.error;
+          icon = 'fa-exclamation-triangle';
+     }
+     if(flash.success) {
+          className = 'alert-success';
+          message = flash.success;
+          icon = 'fa-check';
+     }
+%>
+     <div class="alert <%= className %>  d-flex align-items-center"
+          style="z-index: 99999;" alert-container id="flashMessageContainer"
+          role="alert">
+          <i class="fas <%= icon %> me-2"></i>
+          <div>
+               <%= message%>
+          </div>
+     </div>
+     <script>
+          setTimeout(() => {
+               document.querySelector('[alert-container]').classList.add('d-none');
+          }, 3000);
+     </script>
+          <% } %>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head'); %>
+
+     <body class="background-radial-gradient overflow-auto mt-5">
+
+          <%- include('../includes/flashMessages'); %>
+
+               <!-- <div class="display-6 text-center">Login</div> -->
+               <div class="h2 text-white text-center">
+                    Node<span class="fw-bold" id="second-nav-brand">Auth®</span>
+                    <br>
+                    <div class="h6 mt-1"><a href="/">
+                              < Back Home</a></span>
+                    </div>
+               </div>
+
+               <div class="container px-md-5 my-5">
+                    <div class="row justify-content-center gx-lg-5 align-items-center mb-5">
+                         <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
+                              <!-- <div class="text-center mb-3"><code
+                                        class="card-text">Username or password incorrect!</code></div> -->
+                              <div class="card login-card">
+                                   <div class="card-header">
+                                        <span class="fw-light">Login</span>
+                                   </div>
+                                   <div class="card-body" id="login-card-body" px-3 py-4 px-md-4">
+                                        <form class="" action="/auth/login" method="POST"
+                                             encType="application/x-www-form-urlencoded">
+
+                                             <div class="row mb-4">
+                                                  <div class="col-md-6">
+                                                       <div class="form-outline">
+                                                            <label class="form-label mb-2">Username</label>
+                                                            <input required type="text"
+                                                                 class="form-control form-control-sm" value="John"
+                                                                 name="userName" />
+                                                       </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                       <div class="form-outline">
+                                                            <label class="form-label mb-2">Password</label>
+                                                            <span show-password><i class="fas fa-eye"
+                                                                      aria-hidden="true"></i></span>
+                                                            <input required type="password" value="123456789"
+                                                                 class="form-control form-control-sm" minlength="8"
+                                                                 minlength="32" id="userPassword" name="password" />
+                                                       </div>
+                                                  </div>
+                                             </div>
+
+                                             <!-- Checkbox -->
+                                             <div class="form-check mb-4">
+                                                  <input class="form-check-input me-2" type="checkbox" value=""
+                                                       checked />
+                                                  <label class="form-check-label">
+                                                       Remember me
+                                                  </label>
+                                             </div>
+                                             
+                                        <!-- <div class="form-check mb-4">
+                                             <input class="form-check-input me-2" type="checkbox" value="" checked />
+                                             <label class="form-check-label">
+                                                  <code style="color: #0D6EFD;"
+                                                       class="card-text">After login take me to profile page</code>
+                                             </label>
+                                        </div> -->
+
+
+                                             <!-- Submit button -->
+                                             <div class="text-center d-flex justify-content-between">
+                                                  <button type="submit" class="btn btn-primary btn-block">
+                                                       Signin
+                                                  </button>
+                                                  <button type="button" class="btn btn-primary btn-block">
+                                                       <a class="text-white" href="/auth/register">
+                                                            Signup
+                                                       </a>
+                                                  </button>
+
+
+
+                                             </div>
+
+
+                                        </form>
+                                   </div>
+                              </div>
+
+
+                         </div>
+                    </div>
+               </div>
+
+     </body>
+     <div class="login-footer">
+          <%- include('../../partials/footer'); %>
+     </div>
+     <style>
+          .login-footer {
+               transform: translate(-50%, -50%);
+               position: absolute;
+               bottom: 0;
+               left: 50%;
+          }
+
+          .login-footer footer {
+               margin-bottom: 0 !important;
+          }
+     </style>
+     <script>
+          const isLoggedIn = document.cookie.includes('authorization-token');
+          const loginContainer = document.querySelector('#login-card-body');
+          if (isLoggedIn) {
+               loginContainer.textContent = "You are logged in."
+          }
+
+          const showPasswordBtn = document.querySelector('[show-password]');
+          const passwordInput = document.getElementById('userPassword');
+          showPasswordBtn.addEventListener('click', () => {
+
+               if (showPasswordBtn.firstChild.classList.contains('fa-eye')) {
+                    showPasswordBtn.firstChild.classList.remove('fa-eye');
+                    showPasswordBtn.firstChild.classList.add('fa-eye-slash');
+               } else if (showPasswordBtn.firstChild.classList.contains('fa-eye-slash')) {
+                    showPasswordBtn.firstChild.classList.remove('fa-eye-slash');
+                    showPasswordBtn.firstChild.classList.add('fa-eye');
+
+               }
+
+               if (passwordInput.type === 'password') {
+
+                    passwordInput.type = 'text';
+               } else {
+                    passwordInput.type = 'password'
+               }
+          }); //  
+
+
+     </script>
+
+</html>

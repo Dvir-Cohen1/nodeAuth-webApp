@@ -1,0 +1,137 @@
+<header>
+     <nav class="navbar bg-transparent navbar-expand-lg">
+          <div class="container-fluid">
+               <!-- LOGO -->
+               <div class="navbar-brand text-white">
+                    <a href="/">Node<span data-child-navBrand class="fw-bold">Auth®</span>
+                    </a>
+               </div>
+
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+               </button>
+
+               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <!-- left navbar items -->
+                    <ul class="navbar-nav">
+                         <li class="nav-item">
+                              <a class="nav-link" aria-current="page" href="/">Home</a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link" href="/about">About</a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-primary"
+                                   data-bs-placement="bottom" data-vip-content title="" href="/users">Users+</a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-primary"
+                                   data-bs-placement="bottom" data-vip-content title="" href="/pets">Pets+</a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link" href="/docs" data-bs-toggle="tooltip"
+                                   data-bs-custom-class="tooltip-primary" data-bs-placement="bottom" data-vip-content
+                                   title="">Docs+</a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link" href="/plans" data-bs-toggle="tooltip"
+                                   data-bs-custom-class="tooltip-primary" data-bs-placement="bottom" data-vip-content
+                                   title="">Our Plans+</a>
+                         </li>
+                    </ul>
+                    <!-- Right navbar items -->
+                    <ul class="navbar-nav ms-auto">
+                         <!-- logged out nav items -->
+                         <section class="d-flex" data-logged-out-navItem>
+                              <li class="nav-item">
+                                   <a class="nav-link p-0 px-3" href="/auth/register">Signup</a>
+                              </li>
+                              <li class="nav-item lh-0">
+                                   <a class="nav-link p-0 px-3" href="/auth/login">Signin</a>
+                              </li>
+                         </section>
+                         <!-- logged in nav items -->
+                         <section class="d-flex align-items-center" data-logged-in-navItem>
+
+                              <!-- Switch theme -->
+                              <i style="pointer-events: none;" class="far fa-moon me-3 text-muted"></i>
+                              <div class="nav-item dropdown dropstart me-2" data-bs-custom-class="tooltip-primary"
+                                   data-bs-toggle="tooltip" data-bs-placement="top" title="Change Theme mode">
+                                   <span class="switch-theme">
+                                        <div class="form-check form-switch">
+                                             <input change-theme-mode class="form-check-input" type="checkbox"
+                                                  role="switch">
+
+                                        </div>
+                                   </span>
+                              </div>
+                              <i style="pointer-events: none;" class="far fa-sun pe-3 me-2 border-end border-primary text-muted"></i>
+
+
+
+                              <!-- Favorite Menu -->
+                              <div class="nav-item dropdown flex-warp dropstart mx-3">
+                                   <a favorite-icon href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                        <i class="far fa-star"></i>
+                                   </a>
+                                   <ul class="dropdown-menu dropdown-center">
+                                        <li>
+                                             <button class="dropdown-item py-0" disabled>
+                                                  <span class="text-dark m-0">Favorites</span>
+                                                  <!-- <span  class="small">-------</span> -->
+                                             </button>
+                                        </li>
+                                        <li>
+                                             <hr class="dropdown-divider">
+                                        </li>
+                                        <div data-my-favorites></div>
+                                   </ul>
+                              </div>
+
+                              <!-- User Menu -->
+                              <div class="nav-item dropdown dropstart">
+                                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class="far fa-user"></i>
+                                   </a>
+                                   <ul class="dropdown-menu dropdown-center">
+                                        <li class="d-flex align-items-center">
+                                             <div><img style="border-radius: 50%;" data-profile-img src="" alt=""></div>
+                                             <div>
+                                                  <button class="dropdown-item py-0 text-muted" disabled>
+                                                       <span data-user-name>------</span>
+                                                       <br>
+                                                       <span data-user-email class="small">-------</span>
+                                                  </button>
+                                             </div>
+                                        </li>
+                                        <li>
+                                             <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                             <a data-my-profile class="dropdown-item text-dark" href="/users">My
+                                                  Profile</a>
+                                        </li>
+                                        <!-- <li>
+                                             <a class="dropdown-item text-dark" href="/users">Messages</a>
+                                        </li> -->
+                                        <li>
+                                             <a class="dropdown-item text-dark" href="/users/user/myPets">My Pets</a>
+                                        </li>
+                                        <li>
+                                             <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                             <a class="dropdown-item text-danger" href="/auth/logout">Logout</a>
+                                        </li>
+                                   </ul>
+                              </div>
+                         </section>
+                    </ul>
+
+               </div>
+          </div>
+     </nav>
+</header>

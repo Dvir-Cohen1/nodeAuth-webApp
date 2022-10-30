@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head'); %>
+
+     <body>
+          <%- include('../partials/header'); %>
+               <div class="container">
+
+                    <%- include('./includes/flashMessages'); %>
+
+                         <div class="row mb-5 mt-3">
+                              <div
+                                   class="col-lg-12 mb-lg-0 text-center d-flex justify-content-center flex-column w-75 mx-auto">
+                                   <h1 class="mt-5 display-3 fw-bold ls-tight" style="line-height: 1rem;">
+                                        <span class="fw-light">Node</span>Auth <br />
+                                   </h1>
+                                   <h1 class="display-4 mt-0 fw-light ls-tight">
+                                        <span class="text-primary">Express & JWT</span>
+                                   </h1>
+                                   <p style="color: rgb(157, 168, 185)">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Eveniet, itaque accusantium odio, soluta, corrupti aliquam
+                                        quibusdam tempora at cupiditate quis eum maiores libero
+                                        veritatis? Dicta facilis sint aliquid ipsum atque?
+                                   </p>
+                                   <div class="mx-auto">
+                                        <h4><img width="50px" src="/images/jwt.png" alt=""> 
+                                             JWT
+                                             
+                                             <!-- <img width="130px" src="/images/nodejs.png" alt=""> -->
+                                             </h4>
+                                   </div>
+                              </div>
+                         </div>
+
+
+                         <div class="row w-75 mx-auto mb-5">
+                              <div class="col-sm-6">
+                                   <div class="card">
+                                        <div class="card-header">
+                                             <span class="fw-light">Users</span>
+                                        </div>
+                                        <div class="card-body">
+                                             <span class="card-text">Routes:</span>
+                                             <br>
+                                             <code class="card-text">/users</code> - all users <br>
+                                             <code class="card-text">/users/user/:id</code> - get one user by
+                                             id <br>
+                                             <code class="card-text">/users/create</code> - create new user
+                                             <br>
+                                             <code class="card-text">/users/user/:id</code> - delete user by
+                                             id <br>
+                                             <div class="d-flex justify-content-center"><a href="/users" class="btn btn-primary my-3 fw-light">Take Me There</a></div>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="col-sm-6">
+                                   <div class="card">
+                                        <div class="card-header">
+                                             <span class="fw-light">Pets</span>
+                                        </div>
+                                        <div class="card-body">
+                                             <span class="card-text">Routes:</span>
+                                             <br>
+                                             <code class="card-text">/pets</code> - all pets <br>
+                                             <code class="card-text">/pets/pet/:id</code> - get one pet by id
+                                             <br>
+                                             <code class="card-text">/pets/create</code> - create new pet <br>
+                                             <code class="card-text">/pets/pet/:id</code> - delete pet by id
+                                             <br>
+                                             <div class="d-flex justify-content-center"><a href="/pets" class="btn btn-primary my-3 fw-light">Take Me There</a>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+
+               </div>
+               <%- include('../partials/footer'); %>
+     </body>
+
+</html>

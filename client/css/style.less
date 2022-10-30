@@ -1,0 +1,447 @@
+// Colors
+@white: #fff;
+@black: rgb(29, 29, 29);
+@yellow: yellow;
+
+@purple: #44006b;
+@purple-light: #ad1fff;
+
+@primary: #0d6efd;
+@primary-border: 3px solid #0c5bd1;
+
+@navbar-color-hover: #c1d4f4;
+
+@cards-dark-background-color: #00000030;
+@cards-primary-background-color: #ffffff0d;
+@cards-secondary-background-color: #ffffff17;
+
+@background-color: hsl(218, 41%, 15%);
+@background-image: radial-gradient(
+    650px circle at 0% 0%,
+    hsl(218, 41%, 35%) 15%,
+    hsl(218, 41%, 30%) 35%,
+    hsl(218, 41%, 20%) 75%,
+    hsl(218, 41%, 19%) 80%,
+    transparent 100%
+  ),
+  radial-gradient(
+    1250px circle at 100% 100%,
+    hsl(218, 41%, 45%) 15%,
+    hsl(218, 41%, 30%) 35%,
+    hsl(218, 41%, 20%) 75%,
+    hsl(218, 41%, 19%) 80%,
+    transparent 100%
+  );
+
+@shape-background: radial-gradient(@purple, @purple-light);
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: @background-color;
+  background-image: @background-image;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: @white;
+  min-height: 100vh;
+
+  a {
+    text-decoration: none;
+  }
+
+  .bg-default {
+    background-color: @background-color;
+  }
+  .form-floating label {
+    color: @black;
+  }
+
+  // Navigation bar
+  .navbar a {
+    color: @white;
+    &:hover,
+    &:active,
+    &:focus {
+      color: @navbar-color-hover;
+    }
+  }
+
+  // Dropdown
+  .dropdown-menu {
+    font-size: 0.9rem;
+    .dropdown-item {
+      .text-dark {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      &:active {
+        color: @white !important;
+      }
+    }
+  }
+
+  .dropdown-toggle::after {
+    content: none;
+  }
+
+  // Cards
+  .card {
+    background: @cards-primary-background-color;
+    box-shadow: 0 0 14px -3px @cards-dark-background-color;
+    border: 0;
+
+    &:hover {
+      background: #ffffff0a;
+    }
+
+    .profile-header {
+      background-image: url("https://www.pixelstalk.net/wp-content/uploads/images5/4K-Neon-City-HD-Wallpaper-Free-download.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 200px;
+
+      #uploadProfileImage {
+        position: relative;
+        top: 55px;
+        left: 129px;
+        // display: none;
+        // background: #1a283f;
+        // padding: 3px 7px;
+        border-radius: 50%;
+      }
+
+      .user-profile-image {
+        background: #1a283f;
+        width: fit-content;
+        border-radius: 50%;
+        border: 4px solid #1a283f;
+        position: relative;
+        top: 100px;
+        img {
+          border-radius: 50%;
+        }
+        &:hover + #uploadProfileImage {
+          display: inline;
+        }
+      }
+      .upload-profile-image-form {
+        display: block;
+      }
+    }
+
+    .card-body {
+      .is-favorite svg {
+        transition: all 100ms ease-in-out;
+        color: @yellow;
+      }
+
+      &:hover {
+        .action-buttons {
+          box-shadow: 0 0 5px 0px hsl(210deg 7% 27% / 30%);
+          display: flex;
+        }
+      }
+
+      .profile-image-cards > img {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: 2px solid rgba(0, 0, 0, 0.077);
+      }
+    }
+    .action-buttons {
+      display: none;
+    }
+  }
+
+  // Buttons
+  .btn-default {
+    color: #94a3b8 !important;
+    background: #405169 !important;
+    border: 0;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: #334155 !important;
+    }
+  }
+
+  // Orbs Elements
+  #radius-shape-1 {
+    height: 220px;
+    width: 220px;
+    top: -60px;
+    left: -130px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+  }
+
+  #radius-shape-2 {
+    border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+    bottom: -60px;
+    right: -110px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+  }
+
+  // Accordion
+  .accordion-button:hover {
+    z-index: 2;
+  }
+
+  .accordion-header {
+    margin-bottom: 0;
+    color: white;
+    background: #ffffff0d;
+    box-shadow: 0 0 14px -3px #00000030;
+    border: 0 !important;
+  }
+
+  .accordion-item {
+    color: var(--bs-accordion-color);
+    background-color: #fff0;
+    border: var(--bs-accordion-border-width) solid
+      var(--bs-accordion-border-color);
+  }
+
+  .accordion-body {
+    color: white;
+  }
+
+  .accordion-button:not(.collapsed) {
+    background-color: #1416192e;
+    box-shadow: none;
+  }
+
+  .accordion-item {
+    color: var(--bs-accordion-color);
+    background-color: #fff0;
+    border: none;
+  }
+
+  .accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x);
+    font-size: 1rem;
+    color: @white;
+    text-align: left;
+    background-color: #00000012;
+    border: 0 !important;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: var(--bs-accordion-transition);
+  }
+
+  // Login Page
+  .login-card {
+    border-top: 3px solid #0d6efd;
+
+    &:hover {
+      border-top: 3px solid #0c5bd1;
+    }
+  }
+
+  .container-fluid {
+    padding: 0 25px;
+  }
+
+  // Show Password btn
+  [show-password] {
+    position: relative;
+    top: 47px;
+    color: #5c6b83;
+    right: 12px;
+    float: right;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+
+  header .dropstart .dropdown-toggle::before {
+    display: none;
+  }
+
+  .form-control:disabled {
+    background-color: #ffffff59;
+    opacity: 1;
+  }
+
+  .content-container {
+    background: #ffffff0d;
+    box-shadow: 0 0 14px -3px #00000030;
+    border: 0;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .accordion-button.collapsed::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+  }
+
+  .list-group-item-default {
+    background-color: #ffffff0d;
+    box-shadow: 0 0 8px -6px #00000030;
+  }
+
+  .list-group-item-default:hover {
+    background-color: #ffffff17;
+    box-shadow: 0 0 8px -6px #00000030;
+  }
+
+  .tooltip-primary {
+    --bs-tooltip-bg: var(--bs-primary);
+    font-size: 0.8rem;
+  }
+
+  .tooltip-default {
+    --bs-tooltip-bg: #0000006f;
+    opacity: 0.3;
+    font-size: 0.8rem;
+  }
+
+  .text-bg-default {
+    background-color: #ffffff17;
+  }
+
+  .bg-glass {
+    background-color: hsla(0, 0%, 100%, 0.9) !important;
+    backdrop-filter: saturate(200%) blur(25px);
+  }
+
+  .plans {
+    .card {
+      border: none;
+      padding: 10px 50px;
+    }
+
+    .card::after {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .card:hover {
+      transform: scale(1.02, 1.02);
+      -webkit-transform: scale(1.02, 1.02);
+      backface-visibility: hidden;
+      will-change: transform;
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.359) !important;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    .card:hover .btn-outline-primary {
+      color: white;
+      background: #007bff;
+    }
+  }
+
+  [data-search-user] {
+    background-color: #283449;
+    border: 1px solid #27344a;
+  }
+}
+
+.light-mode {
+  background: aliceblue;
+  color: @black;
+
+  nav {
+    // background: beige !important;
+    a {
+      color: @black;
+    }
+  }
+  .btn-default {
+    background: #ccd2d7 !important;
+  }
+  .accordion-button {
+    background-color: #6666664b;
+    color: @black;
+  }
+  .accordion-body {
+    color: @black;
+  }
+  .bg-default {
+    background-color: @white;
+    color: @black;
+  }
+
+  [favorite-icon] > svg {
+    color: @black;
+  }
+  [data-search-user] {
+    border: 1px solid #D3D9DF;
+    background-color: #ffffff17;
+    box-shadow: 0 0 8px -6px #00000030;
+    &:hover, &:active, &:focus {
+          background-color: #dcdcdc51;
+    }
+  }
+}
+
+// Flash message
+#flashMessageContainer {
+  position: absolute;
+  top: 80px;
+  right: 25px;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #385383;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0000004b;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.fill {
+  // width: 150px;
+  // height: 145px;
+  // background-image: url(https://i.picsum.photos/id/813/150/150.jpg?hmac=e6pt5OTZLc7y7Hc92U6fMDn_9R3DhiG_3MDy3KAy4kk);
+  cursor: pointer;
+}
+
+.hold {
+  border: solid 6px rgb(0, 60, 255);
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.hoverd {
+  background-color: rgba(51, 51, 51, 0.148);
+  border-color: rgba(255, 255, 255, 0.434);
+  border-style: dashed;
+  border-radius: 5px;
+}
+
+.card-body + .card {
+  pointer-events: none;
+  z-index: -999;
+}

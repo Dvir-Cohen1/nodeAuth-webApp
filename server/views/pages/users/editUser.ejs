@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head'); %>
+
+     <body>
+          <%- include('../../partials/header'); %>
+               <%- include('../includes/flashMessages'); %>
+                    <main class="container px-md-5 my-3">
+                         <div class="row justify-content-center gx-lg-5 align-items-center mb-5">
+                              <div class="col-lg-7 mb-5 mb-lg-0 position-relative">
+                                   <div class="h6 mb-3"><a href="/pets">
+                                             < Go Back</a>
+                                   </div>
+                                   <div class="display-6 mb-3">Edit User: <span class="fw-bold">
+                                             <%= user.username %>
+                                        </span> </div>
+
+                                   <div class="card login-card">
+                                        <div class="card-body" id="login-card-body" px-3 py-4 px-md-4">
+
+                                             <form class="row gy-2" action="/users/user/edit/<%=  user.id %> "
+                                                  method="POST" encType="application/x-www-form-urlencoded">
+
+                                                  <div class="row mb-4">
+                                                       <div class="col-md-6">
+                                                            <div class="form-outline">
+
+                                                                 <label class="form-label mb-2">Username</label>
+                                                                 <input disabled required type="text"
+                                                                      class="form-control form-control-sm"
+                                                                      value="<%= user.username %> " id="userName"
+                                                                      name="username">
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="col-md-6">
+                                                            <div class="form-outline">
+                                                                 <label for="userEmail" class="form-label">email</label>
+                                                                 <input disabled required type="email"
+                                                                      class="form-control form-control-sm"
+                                                                      id="userEmail" value="<%= user.email %>"
+                                                                      name="email">
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                                  <div class="row mb-4">
+                                                       <div class="col-md-6">
+                                                            <div class="form-outline">
+                                                                 <label for="firstName" class="form-label">First
+                                                                      Name</label>
+                                                                 <input required type="text"
+                                                                      value="<%= user.firstName %>"
+                                                                      class="form-control form-control-sm"
+                                                                      id="firstName" placeholder="John"
+                                                                      name="firstName">
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="col-md-6">
+                                                            <div class="form-outline">
+                                                                 <label for="lastName" class="form-label">Last
+                                                                      Name</label>
+                                                                 <input required type="text"
+                                                                      value="<%= user.lastName %>"
+                                                                      class="form-control form-control-sm" id="lastName"
+                                                                      name="lastName" placeholder="Doe">
+                                                            </div>
+                                                       </div>
+                                                  </div>
+
+                                                  <div class="row mb-4">
+                                                       <div class="col-md-6">
+                                                            <div class="form-outline">
+                                                                 <label for="userAge" class="form-label">Age</label>
+                                                                 <input required type="number" value="<%= user.age %>"
+                                                                      class="form-control form-control-sm" id="userAge"
+                                                                      name="age">
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="col-md-6">
+                                                            <div class="form-outline">
+                                                                 <label for="userPassword"
+                                                                      class="form-label">Password</label>
+                                                                 <input disabled required type="password"
+                                                                      value="<%= user.password %>"
+                                                                      class="form-control form-control-sm"
+                                                                      id="userPassword" name="password">
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                                  <div class="row mb-4">
+                                                       <div class="col-md-6">
+                                                            <div class="form-outline">
+                                                                 <label for="country" class="form-label">Country</label>
+                                                                 <input type="text" value="<%= user.address.country %>"
+                                                                      class="form-control form-control-sm" id="country"
+                                                                      name="country">
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="col-md-6">
+                                                            <div class="form-outline">
+                                                                 <label for="userPassword"
+                                                                      class="form-label">City</label>
+                                                                 <input type="text" class="form-control form-control-sm"
+                                                                      value="<%= user.address.city %>" name="city">
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                                  <div class="row mb-4">
+                                                       <div class="col-md-6">
+                                                            <div class="form-outline">
+                                                                 <label class="form-label">Street</label>
+                                                                 <input type="text" value="<%= user.address.street %>"
+                                                                      class="form-control form-control-sm"
+                                                                      name="street">
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="col-md-6">
+                                                            <div class="form-outline">
+                                                                 <label for="ZipCode" class="form-label">ZipCode</label>
+                                                                 <input type="number" id="ZipCode"
+                                                                      value="<%= user.address.zipCode %>"
+                                                                      class="form-control form-control-sm"
+                                                                      name="zipCode">
+                                                            </div>
+                                                       </div>
+
+
+                                                  </div>
+
+                                                  <div class="row mb-4">
+                                                       <div class="col-md-12 mb-4">
+                                                            <div class="form-outline">
+                                                                 <label for="user-heading" class="form-label">heading /
+                                                                      Position</label>
+                                                                 <input type="text" id="user-heading"
+                                                                      value="<%= user.heading%>"
+                                                                      class="form-control form-control-sm"
+                                                                      name="heading">
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="col-md-12">
+                                                            <div class="form-outline">
+                                                                 <label for="user-info" class="form-label">Info</label>
+                                                                 <textarea class="form-control form-control-sm"
+                                                                      name="info" id="user-info"
+                                                                      rows="3"><%= user.info%></textarea>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+
+
+                                                  <div class="row">
+                                                       <label for="user-info" class="form-label">Social</label>
+                                                       <div class="col-md-6">
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                 <span class="input-group-text" id="user-website"><i
+                                                                           class="fas fa-project-diagram"></i></span>
+                                                                 <input name="website" type="text" class="form-control"
+                                                                      placeholder="website" aria-label="website"
+                                                                      value="<%= user.social.website%>"
+                                                                      aria-describedby="user-website">
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-md-6">
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                 <span class="input-group-text" id="user-google"><i
+                                                                           class="fab fa-google"></i></span>
+                                                                 <input name="google" type="text" class="form-control"
+                                                                      value="<%= user.social.google%>"
+                                                                      placeholder="Google" aria-label="google"
+                                                                      aria-describedby="user-google">
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-md-6">
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                 <span class="input-group-text" id="user-github"><i
+                                                                           class="fab fa-github"></i></span>
+                                                                 <input name="github" type="text" class="form-control"
+                                                                      value="<%= user.social.github%>"
+                                                                      placeholder="github" aria-label="github"
+                                                                      aria-describedby="user-github">
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-md-6">
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                 <span class="input-group-text" id="user-linkedin"><i
+                                                                           class="fab fa-linkedin"></i></span>
+                                                                 <input name="linkedin" type="text" class="form-control"
+                                                                      value="<%= user.social.linkedin%>"
+                                                                      placeholder="linkedin" aria-label="linkedin"
+                                                                      aria-describedby="user-linkedin">
+                                                            </div>
+                                                       </div>
+                                                  </div>
+
+                                                  <div class="col-auto">
+                                                       <button type="submit" class="btn btn-primary">Save</button>
+                                                       <a type="submit" href="/users"
+                                                            class="btn btn-secondary">Cancel</a>
+                                                  </div>
+                                             </form>
+                                        </div>
+                                   </div>
+
+
+                              </div>
+                         </div>
+                         </div>
+
+
+
+
+
+     </body>
+
+</html>

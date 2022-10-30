@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head'); %>
+
+     <body>
+          <%- include('../../partials/header'); %>
+
+
+               <%- include('../includes/flashMessages'); %>
+                    <main class="container d-flex justify-content-evenly flex-column">
+                         <div class="row my-4 ">
+                              <div class="col fs-1"><i class="fas fa-dog"></i> Pets
+                                   <a href="/pets/create"><button class="btn btn-primary btn-sm">+</button></a>
+
+                                   <!-- <a href="/clearAll"><button class="btn btn-danger btn-sm"><i
+                                             class="far fa-trash-alt"></i></button></a> -->
+                              </div>
+                              <div class="col-auto d-flex align-items-center justify-content-center">
+                                   <ul class="list-group list-group-horizontal">
+                                        <li data-list data-bs-toggle="tooltip" style="cursor: pointer;"
+                                             data-bs-custom-class="tooltip-default" data-bs-placement="bottom"
+                                             data-bs-title="Change Cards Layout"
+                                             class="list-group-item list-group-item-default">
+                                             <div data-layout-icon class="text-primary"> <i class="fas fa-list-ul"></i>
+                                             </div>
+                                        </li>
+                                   </ul>
+
+
+                                   <div class="dropdown list-group ms-3 d-none" reset-filter-btn>
+                                        <a href="/pets">
+                                             <button style="border-radius:0.375rem;"
+                                                  class="list-group-item list-group-item-default btn-danger"
+                                                  aria-expanded="false">
+                                                  <i class="fas fa-times text-danger"></i>
+                                             </button>
+                                        </a>
+                                   </div>
+
+
+                                   <div class="dropdown list-group mx-3">
+                                        <button filter-btn style="border-radius:0.375rem;"
+                                             class="list-group-item list-group-item-default dropdown-toggle text-primary"
+                                             type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                             <i class="fas fa-filter text-primary"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-dark">
+                                             <li data-filter-by-type><a class="dropdown-item" href="/pets/filter/dog">🐕
+                                                       <span class="ms-2">Dogs</span></a></li>
+                                             <li data-filter-by-type><a class="dropdown-item" href="/pets/filter/cat">🐈
+                                                       <span class="ms-2">Cats</span></a></li>
+                                             <li data-filter-by-type><a class="dropdown-item"
+                                                       href="/pets/filter/lion">🦁 <span class="ms-2">Lions</span></a>
+                                             </li>
+                                             <li data-filter-by-type><a class="dropdown-item"
+                                                       href="/pets/filter/rabbit">🐇 <span
+                                                            class="ms-2">Rabbit</span></a></li>
+                                             <li data-filter-by-type><a class="dropdown-item"
+                                                       href="/pets/filter/snake">🐍 <span class="ms-2">Snake</span></a>
+                                             </li>
+                                             <li data-filter-by-type><a class="dropdown-item"
+                                                       href="/pets/filter/fish">🐟 <span class="ms-2">Fish</span></a>
+                                             </li>
+                                             <li data-filter-by-type><a class="dropdown-item"
+                                                       href="/pets/filter/parrot">🦜 <span
+                                                            class="ms-2">Parrot</span></a></li>
+                                        </ul>
+                                   </div>
+
+
+                                   <ul class="list-group list-group-horizontal">
+                                        <li class="list-group-item list-group-item-default"><a
+                                                  href="/pets/filter/dog">🐕 Dogs</a></li>
+                                        <li class="list-group-item list-group-item-default"><a
+                                                  href="/pets/filter/cat">🐈 Cats</a></li>
+                                        <li class="list-group-item list-group-item-default"><a
+                                                  href="/pets/filter/lion">🦁 Lions</a>
+                                        </li>
+                                   </ul>
+                              </div>
+                         </div>
+
+                         <div class="row">
+
+                              <% if(!pets.length) {%>
+                                   No Pets Found!
+                                   <%} %>
+                                        <% pets.forEach( (pet)=> { %>
+                                             <div data-cards-container class="col-sm-4 mb-3">
+                                                  <div class="card" draggable="true">
+
+                                                       <div class="card-body">
+                                                            <div class="float-end action-buttons">
+                                                                 <div class="favorite-action me-2">
+                                                                      <button data-mark-as-favorite data-favorite
+                                                                           id="<%= pet.id%> "
+                                                                           class="btn btn-default text-dark btn-sm"
+                                                                           type="button" aria-expanded="false">
+                                                                           <i class="fas fa-star"
+                                                                                style="pointer-events: none"></i>
+
+                                                                      </button>
+                                                                 </div>
+
+                                                                 <div class="dropdow">
+                                                                      <button
+                                                                           class="btn btn-default text-dark btn-sm dropdown-toggle"
+                                                                           type="button" data-bs-toggle="dropdown"
+                                                                           aria-expanded="false">
+                                                                           <i class="fas fa-ellipsis-h"></i>
+
+                                                                      </button>
+                                                                      <ul class="dropdown-menu">
+                                                                           <li>
+
+                                                                                <a class="dropdown-item" type="button"
+                                                                                     href="pets/pet/<%= pet.id %>">
+                                                                                     <!-- <i class="far fa-eye" aria-hidden="true">
+                                             
+                                                                                                                   </i> -->
+                                                                                     View
+                                                                                </a>
+
+                                                                           </li>
+                                                                           <li>
+
+                                                                                <a class="dropdown-item" type="button"
+                                                                                     href="pets/pet/edit/<%= pet.id %>">
+                                                                                     <!-- <i class="far fa-eye" aria-hidden="true">
+                                                                                                                                                                               
+                                                                                                                                                                                                                                                     </i> -->
+                                                                                     Edit
+                                                                                </a>
+                                                                           </li>
+                                                                           <li>
+                                                                                <button
+                                                                                     class="dropdown-item delete-pet-action btn-sm text-danger"
+                                                                                     type="button" id="<%= pet.id %>">
+                                                                                     <!-- <i
+                                                                                                                        class="far fa-trash-alt"
+                                                                                                                        aria-hidden="true"></i>  -->
+                                                                                     Delete
+                                                                                </button>
+                                                                           </li>
+                                                                      </ul>
+                                                                 </div>
+
+                                                            </div>
+                                                            <!-- <span class="fw-light"></span> -->
+                                                            <div data-type-badge class="mb-2"><span
+                                                                      class="badge text-bg-default fw-normal">#<%=
+                                                                           pet.type %></span></div>
+
+
+
+                                                            Name:
+                                                            <%= pet.name %>
+                                                                 <br>
+
+                                                                 Color:<%= pet.color %>
+                                                                      <br>
+                                                                      Age: <%= pet.age %>,
+                                                                           <br>
+                                                                           Gender: <%= pet.gender %>,
+                                                                                <br>
+
+
+                                                                                Owner:
+                                                                                <% if (pet.owner) { %>
+                                                                                     <% let owners=pet.owner; %>
+                                                                                          <a
+                                                                                               href="/users/user/<%= owners.username %>">
+                                                                                               <%= owners.username %>
+                                                                                          </a>
+                                                                                          <% } %>
+
+                                                                                               <br>
+                                                                                               <code><%= pet.createAt %></code>
+
+                                                                                               <br>
+
+
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             <% }); %>
+
+
+                         </div>
+
+                    </main>
+                    <%- include('../../partials/footer'); %>
+     </body>
+     <script>
+          // Indicate pets filter is active
+          if (window.location.href.includes('filter')) {
+               const filterBtn = document.querySelector('[filter-btn]')
+               const resetBtn = document.querySelector('[reset-filter-btn]')
+               filterBtn.style.backgroundColor = '#ffffff2b';
+               resetBtn.classList.remove('d-none');
+               resetBtn.classList.add('dropdown', 'list-group', 'm-0');
+          }
+     </script>
+     <script src="../js/pets.js" defer></script>
+
+</html>

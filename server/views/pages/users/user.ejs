@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="/js/users.js" defer></script>
+
+<%- include('../../partials/head'); %>
+     <%- include('../includes/flashMessages'); %>
+
+          <body>
+               <%- include('../../partials/header'); %>
+                    <main class="container">
+                         <!-- User header -->
+                         <section class="card mt-3">
+                              <div class="card-header profile-header">
+                                   <span class="float-end">
+
+                                        <button class="btn btn-sm btn-default me-2"><i
+                                                  class="fas fa-cloud-upload text-white"></i></button>
+
+                                        <span class="dropdown">
+                                             <button class="btn btn-default text-dark btn-sm dropdown-toggle"
+                                                  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                  <i class="fas fa-cog text-white"></i>
+                                             </button>
+                                             <ul class="dropdown-menu">
+                                                  <li><a class="dropdown-item"
+                                                            href="/users/user/edit/<%= user.username %>">Edit
+                                                            User</a>
+                                                  </li>
+                                                  <li><button data-delete-user-action
+                                                            class="dropdown-item btn-sm  text-danger" type="button"
+                                                            id="<%= user.id %>">Delete User</button>
+                                                  </li>
+                                             </ul>
+                                        </span>
+
+                                   </span>
+
+                                   <!-- Profile image -->
+                                   <!-- If user has no profile img get default img -->
+                                   <% let path
+                                   if(user.avatar){
+                                   path = `/uploads/${user.id}/${user.avatar}`
+                                   } else {
+                                      path = `/images/noprofile.png`  
+                                   }
+                                   %> 
+                                   <div profile-image class="user-profile-image"><img width="160" height="160"
+                                             src="<%= path %>" alt="">
+                                   </div>
+
+                                   <div class="dropdown">
+                                        <button class="btn btn-default btn-sm dropdown-toggle" type="button"
+                                             id="uploadProfileImage" data-bs-toggle="dropdown" aria-expanded="false">
+                                             <i class="fa-solid fa-camera text-white"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-dark bg-default"
+                                             aria-labelledby="uploadProfileImage">
+
+                                             <form class="upload-profile-image-form m-2"
+                                                  action='/users/user/uploadProfileImage' method='post'
+                                                  encType="multipart/form-data">
+
+                                                  <input type="file" id="selectedFile" name="ProfileImage"
+                                                       class="text-muted">
+
+                                                  <button type="submit" data-upload-profile-image
+                                                       class="btn btn-default btn-sm"><i
+                                                            class="fas fa-check text-success"></i></button>
+                                             </form>
+
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="card-body pt-5">
+                                   <div class="row pt-4">
+                                        <div class="col">
+                                             <div>
+                                                  <span class="h3">
+                                                       <%= user.firstName %>
+                                                            <%= user.lastName %>
+                                                  </span>
+
+
+                                                  <span data-bs-custom-class="tooltip-primary" data-bs-toggle="tooltip"
+                                                       data-bs-placement="top" title="Verify"><i
+                                                            class="fas fa-check-circle text-primary"></i></span>
+                                             </div>
+
+                                             <div class="h6 mt-1">
+                                                  <%= user.heading %>
+                                             </div>
+                                             <p class="text-muted">
+                                                  <%= user.address.country%>,
+                                                       <%= user.address.city%>
+                                                            <span data-bs-custom-class="tooltip-primary"
+                                                                 data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                 title="Go to google maps" class="mx-2"><a
+                                                                      target="_blank"
+                                                                      href="https://maps.google.com?q=<%= user.address.city%>"><i
+                                                                           class="fas fa-map"></i></a></span>
+                                             </p>
+                                             <button class="px-3 btn btn-default btn-sm"><span><a
+                                                            href="mailto:<%= user.email %> ">Message</a></span></button>
+                                             <button onclick="notify('From My Profile','This Is New Notification')"
+                                                  class="px-3 btn btn-default btn-sm"><span
+                                                       class="text-primary">Notification</span></button>
+                                        </div>
+                                        <div class="col-3 d-flex flex-column">
+                                             <h6>Social</h5>
+                                                  <a target="_blank" href="http://<%= user.social.website%>"><i
+                                                            class="fas fa-project-diagram me-3"></i>Website</a>
+                                                  <a target="_blank" href="http://<%= user.social.google%>"><i
+                                                            class="fab fa-google me-3"></i>Google</a>
+                                                  <a target="_blank" href="http://<%= user.social.github%>"><i
+                                                            class="fab fa-github me-3"></i>Github</a>
+                                                  <a target="_blank" href="http://<%= user.social.linkedin%>"><i
+                                                            class="fab fa-linkedin me-3"></i>Linkedin</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </section>
+
+
+                         <% if(!user.info && loggedInUser === user.id){%>
+                              <div class="alert alert-primary alert-dismissible fade show mt-4" role="alert">
+                                   <i class="fas fa-exclamation-circle"></i>
+                                   <strong>Please complete setting your account</strong>
+                                   by adding more
+                                   information about yourself.
+                                   <a href="/users/user/edit/<%= user.username %>">Add information</a>
+                                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>
+                              <% }%>
+                              
+                                   <!-- User info -->
+                                   <div class="g-3 my-3 row">
+                                        <div class="col-lg-8">
+                                             <div class="card">
+                                                  <div class="card-header">info</div>
+                                                  <div class="card-body">
+                                                       <%= user.info%>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <!-- User Favorites -->
+                                        <div class="col-lg-4">
+                                             <div class="card">
+                                                  <div class="card-header">Favorites</div>
+                                                  <div class="card-body">
+                                                       <ol class="list-group">
+                                                            <% if(!user.favorites.length) {%>
+                                                                 No favorites!
+                                                                 <% }%>
+                                                                      <% user.favorites.forEach( (favorite)=> { %>
+                                                                           <li
+                                                                                class="list-group-item list-group-item-default d-flex justify-content-between align-items-start">
+                                                                                <div class="ms-2 me-auto">
+                                                                                     <div class="fw-bold"><a
+                                                                                               href="/pets/pet/<%= favorite.id %>">
+                                                                                               <%= favorite.name %>
+                                                                                          </a></div>
+                                                                                </div>
+                                                                                <span
+                                                                                     class="badge bg-primary rounded-pill">
+                                                                                     <%= favorite.type %>
+                                                                                </span>
+
+                                                                           </li>
+                                                                           <% }) %>
+                                                       </ol>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                    </main>
+
+                    <%- include('../../partials/footer'); %>
+          </body>
+
+</html>

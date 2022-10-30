@@ -1,0 +1,7 @@
+# Client
+/client/uploads/
+
+# Server
+/server/package-lock.json
+/server/node_modules
+.vscode/

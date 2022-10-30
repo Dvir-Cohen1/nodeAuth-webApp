@@ -1,0 +1,56 @@
+<!-- Modal -->
+<div class="modal fade text-dark" id="send-mail-modal" tabindex="-1" aria-labelledby="sendMailModal" aria-hidden="true">
+     <div class="modal-dialog">
+          <div class="modal-content">
+               <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Send Email</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+
+               <div class="alert alert-warning alert-dismissible fade show small" role="alert">
+                    <strong>Be aware!</strong> Email will send via <strong>nodemailer</strong> check that the email
+                    address are correct.
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">Dismiss</button> -->
+               </div>
+
+
+               <div message-container class="message-container"></div>
+
+               <form send-email-form>
+                    <div class="modal-body">
+                         <div class="row">
+                              <div class="col col-12">
+                                   <div class="mb-3">
+                                        <label for="userEmail" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" email-input id="userEmail" value="asd">
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="row">
+                              <div class="col col-12">
+                                   <div class="mb-3">
+                                        <label for="subject" class="form-label">Subject</label>
+                                        <input type="text" class="form-control" subject-input id="subject" name="subject" placeholder="Subject">
+                                   </div>
+                              </div>
+                              <div class="col col-12">
+                                   <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+                                        <textarea class="form-control" content-input name="content" placeholder="Content"
+                                             rows="3"></textarea>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="modal-footer">
+                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                         <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+               </form>
+
+
+
+          </div>
+     </div>
+</div>

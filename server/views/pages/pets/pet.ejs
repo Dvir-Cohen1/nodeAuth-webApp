@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head'); %>
+
+     <body>
+          <%- include('../../partials/header'); %>
+
+
+               <main class="container">
+                    <div class="row mt-3">
+                         <div class="col-auto">
+                              <a class="fw-light h6" href="/pets">Go Back</a>
+                         </div>
+                    </div>
+                    <div class="row align-items-center my-3">
+                         <div class="col-auto">
+                              <h3> # <%= pet.type %>
+                              </h3>
+                         </div>
+                         <div class="col">
+                              <div class="dropdown">
+                                   <button class="btn btn-default btn-sm dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                   </button>
+                                   <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/pets/pet/edit/<%= pet.id %>">Edit
+                                                  Pet</a>
+                                        </li>
+                                        <li>
+
+                                             <button class="dropdown-item delete-pet-action btn-sm text-danger"
+                                                  type="button" id="<%= pet.id %>">Delete Pet
+                                             </button>
+                                        </li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="row">
+
+                         <div class="d-flex align-items-start">
+                              <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
+                                   aria-orientation="vertical">
+                                   <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                        data-bs-target="#v-pills-profile" type="button" role="tab"
+                                        aria-controls="v-pills-profile" aria-selected="true">
+                                        Pet Profile
+                                   </button>
+
+                                   <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                                        data-bs-target="#v-pills-settings" type="button" role="tab"
+                                        aria-controls="v-pills-settings" aria-selected="false">Settings</button>
+                              </div>
+                              <div class="tab-content" id="v-pills-tabContent">
+
+                                   <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                                        aria-labelledby="v-pills-profile-tab">
+                                        Pet name:
+                                        <span class="fw-bold">
+                                             <%= pet.name %>
+                                        </span>
+                                        <br>
+                                        Pet gender:
+                                        <span class="fw-bold">
+                                             <%= pet.gender %>
+                                        </span>
+                                        <br>
+                                        Pet age:
+                                        <span class="fw-bold">
+                                             <%= pet.age %>
+                                        </span>
+                                        <br>
+                                        Pet color:
+                                        <span class="fw-bold">
+                                             <%= pet.color %>
+                                        </span>
+                                        <br>
+                                        isVegetarian:
+                                        <span class="fw-bold">
+                                             <%= pet.isVegetarian %>
+                                        </span>
+                                        <br>
+                                        Owner name:
+                                        <% if(!pet.owner) {%>
+                                             No owner!
+                                             <%} %>
+                                                  <span class="fw-bold">
+                                                       <a href="/users/user/<%= owner.username %>">
+                                                            <%= owner.username %>
+                                                       </a>
+                                                  </span>
+                                                  <br>
+
+
+
+                                                  Created at:
+                                                  <span class="fw-bold">
+                                                       <%= pet.createAt %>
+                                                  </span>
+
+                                   </div>
+
+                                   <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                                        aria-labelledby="v-pills-settings-tab">No setting yet.
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+               </div>
+
+               <%- include('../../partials/footer'); %>
+     </body>
+
+</html>

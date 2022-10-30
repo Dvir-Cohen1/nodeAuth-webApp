@@ -1,0 +1,98 @@
+<html lang="en">
+<%- include('../partials/head'); %>
+
+     <body>
+          <%- include('../partials/header'); %>
+               <% if(flash) { %>
+                    <% - include('./includes/flashMessages'); %>
+                         <% }%>
+                              <main class="container plans">
+                                   <div class="container-fluid">
+                                        <div class="alert alert-success d-none" role="alert" aria-hidden="true">
+                                             Setting Plan!
+                                        </div>
+                                        <div class="container p-4">
+                                             <h2 class="text-center mb-5">Choose Your Plan</h2>
+                                             <div class="row">
+                                                  <div class="col-lg-4 col-md-12 mb-4">
+                                                       <div class="card h-100 shadow-lg">
+                                                            <div class="card-body">
+                                                                 <div class="text-center p-3">
+                                                                      <div class="h5">
+                                                                           <i class="far fa-star"></i>
+                                                                      </div>
+                                                                      <h5 class="card-title">Basic</h5>
+                                                                      <small>Individual</small>
+                                                                      <br><br>
+                                                                      <span class="h2">$8</span>/month
+                                                                      <br><br>
+                                                                 </div>
+                                                                 <p class="card-text">Some quick example text to build
+                                                                      on the card title and make up the
+                                                                      bulk of the card's content.</p>
+                                                            </div>
+
+                                                            <div class="card-body text-center">
+                                                                 <button class="btn btn-outline-primary btn-lg"
+                                                                      style="border-radius:30px">Select</button>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                                  <div class="col-lg-4 col-md-12 mb-4">
+                                                       <div class="card h-100 shadow-lg">
+                                                            <div class="card-body">
+                                                                 <div class="text-center p-3">
+                                                                      <div class="h5">
+                                                                           <i class="far fa-star"></i>
+                                                                           <i class="far fa-star"></i>
+                                                                      </div>
+                                                                      <h5 class="card-title">Standard</h5>
+                                                                      <small>Small Business</small>
+                                                                      <br><br>
+                                                                      <span class="h2">$20</span>/month
+                                                                      <br><br>
+                                                                 </div>
+                                                                 <p class="card-text">Some quick example text to build
+                                                                      on the card title and make up the
+                                                                      bulk of the card's content.</p>
+                                                            </div>
+
+                                                            <div class="card-body text-center">
+                                                                 <button class="btn btn-outline-primary btn-lg"
+                                                                      style="border-radius:30px">Select</button>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                                  <div class="col-lg-4 col-md-12 mb-4">
+                                                       <div class="card h-100 shadow-lg">
+                                                            <div class="card-body">
+                                                                 <div class="text-center p-3">
+                                                                      <div class="h5">
+                                                                           <i class="far fa-star"></i>
+                                                                           <i class="far fa-star"></i>
+                                                                           <i class="far fa-star"></i>
+                                                                      </div>
+                                                                      <h5 class="card-title">Premium</h5>
+                                                                      <small>Large Companies</small>
+                                                                      <br><br>
+                                                                      <span class="h2">$40</span>/month
+                                                                      <br><br>
+                                                                 </div>
+                                                                 <p class="card-text">Some quick example text to build
+                                                                      on the card title and make up the
+                                                                      bulk of the card's content.</p>
+                                                            </div>
+
+                                                            <div class="card-body text-center">
+                                                                 <button class="btn btn-outline-primary btn-lg"
+                                                                      style="border-radius:30px">Select</button>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                              </main>
+                              <%- include('../partials/footer'); %>
+     </body>
+
+</html>
