@@ -1,18 +1,17 @@
 # nodeAuth-webApp
 
-- [x] #739
-- [ ] https://github.com/octo-org/octo-repo/issues/740
-- [ ] Add delight to the experience when all tasks are complete :tada:
+In the project directory, first run:
+>make sure your're in server folder!
 
-###install all dependencies
-/**
-*
- * npm install
- *
- */
- 
-## Run The Project
 ```
-/**
- * nodemon
- */
+npm install
+```
+ 
+ then you can run:
+```
+ nodemon
+```
+ or:
+```
+ npm start
+```
