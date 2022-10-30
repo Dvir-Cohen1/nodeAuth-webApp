@@ -6,5 +6,5 @@
 /server/node_modules
 
 # Client
-# /client/uploads/**
+/client/uploads/**
 
