@@ -7,7 +7,7 @@
  *
  */
  
-## Common Module Functions
+## Run The Project
 ### register_activation_hook
 ```
 /**
