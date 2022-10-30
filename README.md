@@ -1,24 +1,19 @@
-# nodeAuth-webApp
+# nodeAuth-webApp 
+>This application was built as part of full-stack studies at INT College.
+Built with nodejs & express & ejs
 
 
+In the project directory, first **run**:
 
-In the project directory, first run:
->make sure your're in /server folder!
-
-```
-npm install
-```
+**_make sure your're in /server folder!_**
+### `npm install`
 
 
  then you can run:
- > require nodemon installed
-```
- nodemon
-```
-
-
-
+ ### `npm start`
+Open http://localhost:2070 to view it in the browser.
+ 
  or:
-```
- npm start
-```
+ ### `nodemon`
+ > require nodemon installed.
+
