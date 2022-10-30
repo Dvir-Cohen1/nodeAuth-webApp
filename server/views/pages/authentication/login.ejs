@@ -3,6 +3,8 @@
 
 <%- include('../../partials/head'); %>
 
+     <script src="/js/auth.js" defer></script>
+
      <body class="background-radial-gradient overflow-auto mt-5">
 
           <%- include('../includes/flashMessages'); %>
@@ -41,8 +43,8 @@
                                                   <div class="col-md-6">
                                                        <div class="form-outline">
                                                             <label class="form-label mb-2">Password</label>
-                                                            <span show-password><i class="fas fa-eye"
-                                                                      aria-hidden="true"></i></span>
+                                                            <span show-password id="show-password-login"><i
+                                                                      class="fas fa-eye" aria-hidden="true"></i></span>
                                                             <input required type="password" value="123456789"
                                                                  class="form-control form-control-sm" minlength="8"
                                                                  minlength="32" id="userPassword" name="password" />
@@ -58,8 +60,8 @@
                                                        Remember me
                                                   </label>
                                              </div>
-                                             
-                                        <!-- <div class="form-check mb-4">
+
+                                             <!-- <div class="form-check mb-4">
                                              <input class="form-check-input me-2" type="checkbox" value="" checked />
                                              <label class="form-check-label">
                                                   <code style="color: #0D6EFD;"
@@ -97,47 +99,5 @@
      <div class="login-footer">
           <%- include('../../partials/footer'); %>
      </div>
-     <style>
-          .login-footer {
-               transform: translate(-50%, -50%);
-               position: absolute;
-               bottom: 0;
-               left: 50%;
-          }
-
-          .login-footer footer {
-               margin-bottom: 0 !important;
-          }
-     </style>
-     <script>
-          const isLoggedIn = document.cookie.includes('authorization-token');
-          const loginContainer = document.querySelector('#login-card-body');
-          if (isLoggedIn) {
-               loginContainer.textContent = "You are logged in."
-          }
-
-          const showPasswordBtn = document.querySelector('[show-password]');
-          const passwordInput = document.getElementById('userPassword');
-          showPasswordBtn.addEventListener('click', () => {
-
-               if (showPasswordBtn.firstChild.classList.contains('fa-eye')) {
-                    showPasswordBtn.firstChild.classList.remove('fa-eye');
-                    showPasswordBtn.firstChild.classList.add('fa-eye-slash');
-               } else if (showPasswordBtn.firstChild.classList.contains('fa-eye-slash')) {
-                    showPasswordBtn.firstChild.classList.remove('fa-eye-slash');
-                    showPasswordBtn.firstChild.classList.add('fa-eye');
-
-               }
-
-               if (passwordInput.type === 'password') {
-
-                    passwordInput.type = 'text';
-               } else {
-                    passwordInput.type = 'password'
-               }
-          }); //  
-
-
-     </script>
 
 </html>

@@ -166,27 +166,43 @@ document.addEventListener('DOMContentLoaded', () => {
      }
 })
 
-
-
 // Change cards layout 
-if (window.location.href.includes('/pets')) {
-     const cardsContainers = document.querySelectorAll('[data-cards-container]');
-     const layoutIconElement = document.querySelector('[data-layout-icon]').firstElementChild;
-     const layoutBtn = document.querySelector('[data-list]');
+const cardsContainers = document.querySelectorAll('[data-cards-container]');
+const layoutIconElement = document.querySelector('[data-layout-icon]').firstElementChild;
+const layoutBtn = document.querySelector('[data-list]');
 
-     layoutBtn.addEventListener('click', function (e) {
-          cardsContainers.forEach(el => {
-               console.log(el)
-               if (el.classList.contains('col-sm-4')) {
-                    el.classList.replace('col-sm-4', 'col-sm-12');
-                    layoutIconElement.classList.replace('fa-list-ul', 'fa-border-all');
-               } else {
-                    el.classList.replace('col-sm-12', 'col-sm-4');
-                    layoutIconElement.classList.replace('fa-border-all', 'fa-list-ul');
-               }
-          })
-     });
-}
+layoutBtn.addEventListener('click', function (e) {
+     cardsContainers.forEach(el => {
+          console.log(el)
+          if (el.classList.contains('col-sm-4')) {
+               el.classList.replace('col-sm-4', 'col-sm-12');
+               layoutIconElement.classList.replace('fa-list-ul', 'fa-border-all');
+          } else {
+               el.classList.replace('col-sm-12', 'col-sm-4');
+               layoutIconElement.classList.replace('fa-border-all', 'fa-list-ul');
+          }
+     })
+});
 
 
+// const showPasswordBtn = document.querySelector('[show-password]');
+// const passwordInput = document.getElementById('userPassword');
+// showPasswordBtn.addEventListener('click', () => {
+
+//      if (showPasswordBtn.firstChild.classList.contains('fa-eye')) {
+//           showPasswordBtn.firstChild.classList.remove('fa-eye');
+//           showPasswordBtn.firstChild.classList.add('fa-eye-slash');
+//      } else if (showPasswordBtn.firstChild.classList.contains('fa-eye-slash')) {
+//           showPasswordBtn.firstChild.classList.remove('fa-eye-slash');
+//           showPasswordBtn.firstChild.classList.add('fa-eye');
+
+//      }
+
+//      if (passwordInput.type === 'password') {
+
+//           passwordInput.type = 'text';
+//      } else {
+//           passwordInput.type = 'password'
+//      }
+// }); //  
 

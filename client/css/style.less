@@ -257,7 +257,7 @@ body {
   }
 
   // Show Password btn
-  [show-password] {
+  #show-password-login {
     position: relative;
     top: 47px;
     color: #5c6b83;
@@ -265,6 +265,16 @@ body {
     float: right;
     cursor: pointer;
     font-size: 0.8rem;
+  }
+
+  #show-password-register {
+    position: relative;
+    right: 12px;
+    float: right;
+    color: #5c6b83;
+    cursor: pointer;
+    font-size: 0.8rem;
+    top: -35px;
   }
 
   header .dropstart .dropdown-toggle::before {
@@ -354,6 +364,17 @@ body {
     background-color: #283449;
     border: 1px solid #27344a;
   }
+
+  .login-footer {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+  }
+
+  .login-footer footer {
+    margin-bottom: 0 !important;
+  }
 }
 
 .light-mode {
@@ -385,11 +406,13 @@ body {
     color: @black;
   }
   [data-search-user] {
-    border: 1px solid #D3D9DF;
+    border: 1px solid #d3d9df;
     background-color: #ffffff17;
     box-shadow: 0 0 8px -6px #00000030;
-    &:hover, &:active, &:focus {
-          background-color: #dcdcdc51;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: #dcdcdc51;
     }
   }
 }

@@ -174,7 +174,7 @@ body .login-card:hover {
 body .container-fluid {
   padding: 0 25px;
 }
-body [show-password] {
+body #show-password-login {
   position: relative;
   top: 47px;
   color: #5c6b83;
@@ -182,6 +182,15 @@ body [show-password] {
   float: right;
   cursor: pointer;
   font-size: 0.8rem;
+}
+body #show-password-register {
+  position: relative;
+  right: 12px;
+  float: right;
+  color: #5c6b83;
+  cursor: pointer;
+  font-size: 0.8rem;
+  top: -35px;
 }
 body header .dropstart .dropdown-toggle::before {
   display: none;
@@ -253,6 +262,15 @@ body [data-search-user] {
   background-color: #283449;
   border: 1px solid #27344a;
 }
+body .login-footer {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+body .login-footer footer {
+  margin-bottom: 0 !important;
+}
 .light-mode {
   background: aliceblue;
   color: #1d1d1d;
@@ -278,7 +296,7 @@ body [data-search-user] {
   color: #1d1d1d;
 }
 .light-mode [data-search-user] {
-  border: 1px solid #D3D9DF;
+  border: 1px solid #d3d9df;
   background-color: #ffffff17;
   box-shadow: 0 0 8px -6px #00000030;
 }

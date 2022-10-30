@@ -23,23 +23,6 @@ deleteUserBtn.forEach(el => {
      });
 })
 
-// Change cards layout
-if (layoutBtn) {
-     layoutBtn.addEventListener('click', function (e) {
-          const layoutIcon = document.querySelector('[data-layout-icon]').firstElementChild;
-          cardsContainers.forEach(element => {
-               if (element.classList.contains('col-sm-4')) {
-                    element.classList.replace('col-sm-4', 'col-sm-12');
-                    layoutIcon.classList.replace('fa-list-ul', 'fa-border-all');
-               } else {
-                    element.classList.replace('col-sm-12', 'col-sm-4');
-                    layoutIcon.classList.replace('fa-border-all', 'fa-list-ul');
-               }
-          })
-     });
-}
-
-
 // Search User
 document.querySelector('[data-search-user]').addEventListener('change', searchUser);
 async function searchUser(event) {

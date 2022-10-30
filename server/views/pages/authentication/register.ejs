@@ -2,6 +2,7 @@
 <html lang="en">
 
 <%- include('../../partials/head'); %>
+     <script src="/js/auth.js" defer></script>
 
      <body>
           <%- include('../includes/flashMessages'); %>
@@ -42,8 +43,7 @@
                                                                       <input required type="text" class="form-control"
                                                                            id="firstName" value="John"
                                                                            name="firstName" />
-                                                                      <label class="form-label"
-                                                                           for="firstName">First
+                                                                      <label class="form-label" for="firstName">First
                                                                            Name</label>
                                                                  </div>
                                                             </div>
@@ -68,8 +68,12 @@
                                                                            class="form-control" minlength="8"
                                                                            minlength="32" id="userPassword"
                                                                            name="password" />
+                                                                      <span show-password id="show-password-register"><i
+                                                                                class="fas fa-eye"
+                                                                                aria-hidden="true"></i></span>
                                                                       <label class="form-label"
                                                                            for="userPassword">Password</label>
+
                                                                  </div>
                                                             </div>
                                                        </div>
@@ -78,7 +82,8 @@
                                                        <div class="form-outline mb-4">
                                                             <input required type="email" class="form-control"
                                                                  id="userEmail" value="john@gmail.com" name="email" />
-                                                            <label class="form-label" for="userEmail">Email address</label>
+                                                            <label class="form-label" for="userEmail">Email
+                                                                 address</label>
                                                        </div>
 
                                                        <!-- Password input -->
