@@ -81,6 +81,10 @@ export async function uploadProfileImage(req, res, next) {
      const file = req.files.ProfileImage
      const fileType = file.name.split(".")[1];
 
+
+     const uploadsFolder = `../client/uploads`
+     if (!fs.existsSync(uploadsFolder)) fs.mkdirSync(uploadsFolder);
+
      const userDir = `../client/uploads/${req.userId}`
      const uploadPath = `${userDir}/avatar.${fileType}`;
 
