@@ -7,7 +7,12 @@
  *
  */
  
-###run project
+## Common Module Functions
+### register_activation_hook
+```
 /**
- * nodemon / npm start
+ * Register module activation hook
+ * @param  string $module   module system name
+ * @param  mixed $function  function for the hook
+ * @return mixed
  */
