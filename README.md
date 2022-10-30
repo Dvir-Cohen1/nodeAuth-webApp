@@ -10,8 +10,5 @@
 ## Run The Project
 ```
 /**
- * Register module activation hook
- * 
- * 
- * 
+ * nodemon
  */
