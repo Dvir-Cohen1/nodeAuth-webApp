@@ -7,5 +7,6 @@
 
 # Client
 /client/uploads/*
+!/client/uploads/
 
 
